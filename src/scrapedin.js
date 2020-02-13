@@ -9,7 +9,7 @@ module.exports = async({ cookies, email, password, isHeadless, hasToLog, hasToGe
   }
   logger.info('scrapedin', 'initializing')
 
-  const args = Object.assign({ headless: isHeadless, args: ['--no-sandbox'] }, puppeteerArgs)
+  const args = Object.assign({ headless: isHeadless, args: ['--no-sandbox', '--disable-setuid-sandbox'] }, puppeteerArgs)
   const browser = await puppeteer.launch(args)
 
   if(cookies) {
